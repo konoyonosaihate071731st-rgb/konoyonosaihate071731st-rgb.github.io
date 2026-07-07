@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<title>My Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作品ギャラリー</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: linear-gradient(#020024, #090979, #00d4ff);
+  color: white;
+  text-align: center;
+}
+
+header {
+  padding: 60px 20px;
+}
+
+h1 {
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+.card {
+  width: 280px;
+  background: rgba(255,255,255,0.15);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+footer {
+  padding: 30px;
+  opacity: 0.8;
+}
+</style>
+
 </head>
+
 <body>
-<h1>こんにちは！</h1>
-<p>GitHub Pages公開成功</p>
+
+<header>
+<h1>作品ギャラリー</h1>
+<p>幻想的な風景と創作作品の展示室</p>
+</header>
+
+
+<section class="gallery">
+
+<div class="card">
+<h2>作品 01</h2>
+<p>ここに作品を追加</p>
+</div>
+
+<div class="card">
+<h2>作品 02</h2>
+<p>ここに作品を追加</p>
+</div>
+
+<div class="card">
+<h2>作品 03</h2>
+<p>ここに作品を追加</p>
+</div>
+
+</section>
+
+
+<footer>
+<p>© 2026 My Gallery</p>
+</footer>
+
 </body>
 </html>
