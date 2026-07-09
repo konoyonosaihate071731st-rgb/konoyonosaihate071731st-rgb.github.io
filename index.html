@@ -4,94 +4,241 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>作品ギャラリー</title>
+<title>星の駅</title>
 
 <style>
-body{
+
+*{
     margin:0;
-    font-family:sans-serif;
-    background:linear-gradient(#020024,#090979,#00d4ff);
-    color:white;
-    text-align:center;
+    padding:0;
+    box-sizing:border-box;
 }
 
+body{
+
+    font-family:"Yu Gothic",sans-serif;
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at top,#4ecbff 0%,#07245c 35%,#02030d 100%);
+}
+
+
+/* タイトル */
+
 header{
-    padding:60px 20px;
+
+    padding:70px 20px 40px;
+
 }
 
 h1{
-    font-size:40px;
-    letter-spacing:3px;
+
+    font-size:60px;
+    letter-spacing:10px;
+
+    text-shadow:
+    0 0 10px #7fdfff,
+    0 0 20px #7fdfff,
+    0 0 35px #5fbfff;
+
 }
+
+.subtitle{
+
+    margin-top:18px;
+
+    font-size:20px;
+
+    opacity:.95;
+
+}
+
+.english{
+
+    margin-top:12px;
+
+    color:#bfefff;
+
+    letter-spacing:3px;
+
+    font-size:14px;
+
+}
+
+
+/* ギャラリー */
 
 .gallery{
+
     display:flex;
-    flex-wrap:wrap;
+
     justify-content:center;
-    gap:30px;
-    padding:30px;
+
+    flex-wrap:wrap;
+
+    gap:35px;
+
+    padding:40px;
+
 }
 
+
+/* カード */
+
 .card{
-    width:300px;
-    background:rgba(255,255,255,0.15);
-    border-radius:15px;
-    padding:15px;
-    transition:0.3s;
-    backdrop-filter:blur(6px);
+
+    width:320px;
+
+    padding:18px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    transition:.35s;
+
+    box-shadow:0 0 25px rgba(0,180,255,.25);
+
 }
 
 .card:hover{
-    transform:scale(1.03);
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 35px rgba(120,220,255,.5);
+
+}
+
+.card h2{
+
+    margin-bottom:15px;
+
 }
 
 .card img{
+
     width:100%;
-    border-radius:10px;
+
+    border-radius:12px;
+
     cursor:pointer;
-    transition:0.3s;
+
+    transition:.3s;
+
 }
 
 .card img:hover{
-    opacity:0.9;
+
+    transform:scale(1.02);
+
 }
 
-footer{
-    padding:30px;
-    opacity:0.8;
+.card p{
+
+    margin-top:15px;
+
+    opacity:.9;
+
 }
+
+
+/* フッター */
+
+footer{
+
+    margin:60px 0 40px;
+
+    color:#cfefff;
+
+    opacity:.8;
+
+}
+
 
 /* 拡大表示 */
 
 .lightbox{
+
     display:none;
+
     position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
     z-index:999;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
+
 }
 
 .lightbox img{
-    max-width:90%;
-    max-height:90%;
+
     position:absolute;
+
     top:50%;
+
     left:50%;
+
     transform:translate(-50%,-50%);
-    border-radius:10px;
+
+    max-width:92%;
+
+    max-height:90%;
+
+    border-radius:15px;
+
+    box-shadow:0 0 40px #7fdfff;
+
 }
 
 .close{
+
     position:absolute;
-    top:20px;
-    right:35px;
-    color:white;
-    font-size:45px;
+
+    right:30px;
+
+    top:15px;
+
+    font-size:55px;
+
     cursor:pointer;
+
 }
+
+
+/* スマホ */
+
+@media(max-width:700px){
+
+h1{
+
+font-size:42px;
+
+letter-spacing:5px;
+
+}
+
+.subtitle{
+
+font-size:16px;
+
+}
+
+.card{
+
+width:90%;
+
+}
+
+}
+
 </style>
 
 </head>
@@ -99,37 +246,75 @@ footer{
 <body>
 
 <header>
-<h1>作品ギャラリー</h1>
-<p>幻想的な風景と創作作品の展示室</p>
+
+<h1>🌌 星 の 駅 🌌</h1>
+
+<p class="subtitle">
+
+銀河鉄道が運ぶ、幻想の世界へようこそ。
+
+</p>
+
+<p class="english">
+
+A Fantasy Gallery of the Galaxy Railway
+
+</p>
+
 </header>
+
 
 <section class="gallery">
 
 <div class="card">
-<h2>作品 01</h2>
+
+<h2>作品01</h2>
 
 <img src="caf1c607-0499-4eaa-bf51-27605f56094d.png"
+
 onclick="openImg(this.src)">
 
-<p>幻想的な作品</p>
+<p>
+
+幻想的な青の世界。
+
+</p>
 
 </div>
 
+
+
 <div class="card">
-<h2>作品 02</h2>
+
+<h2>作品02</h2>
 
 <img src="db8bb38b-e8b5-4e10-88ce-7a8e6a47ec6f.png"
+
 onclick="openImg(this.src)">
 
-<p>星の駅に降り立つプリンセス</p>
+<p>
+
+星の駅に降り立つプリンセス。
+
+</p>
 
 </div>
 
 </section>
 
+
+
 <footer>
-<p>© 2026 My Gallery</p>
+
+<p>
+
+🌌 星の駅 - Fantasy Gallery -
+
+</p>
+
 </footer>
+
+
 
 <div id="lightbox" class="lightbox" onclick="closeImg()">
 
@@ -138,6 +323,7 @@ onclick="openImg(this.src)">
 <img id="lightbox-img">
 
 </div>
+
 
 <script>
 
@@ -158,4 +344,5 @@ document.getElementById("lightbox").style.display="none";
 </script>
 
 </body>
+
 </html>
