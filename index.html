@@ -7,46 +7,90 @@
 <title>作品ギャラリー</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: linear-gradient(#020024, #090979, #00d4ff);
-  color: white;
-  text-align: center;
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:linear-gradient(#020024,#090979,#00d4ff);
+    color:white;
+    text-align:center;
 }
 
-header {
-  padding: 60px 20px;
+header{
+    padding:60px 20px;
 }
 
-h1 {
-  font-size: 40px;
-  letter-spacing: 3px;
+h1{
+    font-size:40px;
+    letter-spacing:3px;
 }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 30px;
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:30px;
 }
 
-.card {
-  width: 280px;
-  background: rgba(255,255,255,0.15);
-  padding: 15px;
-  border-radius: 15px;
+.card{
+    width:300px;
+    background:rgba(255,255,255,0.15);
+    border-radius:15px;
+    padding:15px;
+    transition:0.3s;
+    backdrop-filter:blur(6px);
 }
 
-.card img {
-  width: 100%;
-  border-radius: 10px;
+.card:hover{
+    transform:scale(1.03);
 }
 
-footer {
-  padding: 30px;
-  opacity: 0.8;
+.card img{
+    width:100%;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card img:hover{
+    opacity:0.9;
+}
+
+footer{
+    padding:30px;
+    opacity:0.8;
+}
+
+/* 拡大表示 */
+
+.lightbox{
+    display:none;
+    position:fixed;
+    z-index:999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border-radius:10px;
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:35px;
+    color:white;
+    font-size:45px;
+    cursor:pointer;
 }
 </style>
 
@@ -63,14 +107,22 @@ footer {
 
 <div class="card">
 <h2>作品 01</h2>
-<img src="caf1c607-0499-4eaa-bf51-27605f56094d.png" alt="作品01">
+
+<img src="caf1c607-0499-4eaa-bf51-27605f56094d.png"
+onclick="openImg(this.src)">
+
 <p>幻想的な作品</p>
+
 </div>
 
 <div class="card">
 <h2>作品 02</h2>
-<img src="db8bb38b-e8b5-4e10-88ce-7a8e6a47ec6f.png" alt="作品02">
+
+<img src="db8bb38b-e8b5-4e10-88ce-7a8e6a47ec6f.png"
+onclick="openImg(this.src)">
+
 <p>星の駅に降り立つプリンセス</p>
+
 </div>
 
 </section>
@@ -78,6 +130,32 @@ footer {
 <footer>
 <p>© 2026 My Gallery</p>
 </footer>
+
+<div id="lightbox" class="lightbox" onclick="closeImg()">
+
+<span class="close">&times;</span>
+
+<img id="lightbox-img">
+
+</div>
+
+<script>
+
+function openImg(src){
+
+document.getElementById("lightbox").style.display="block";
+
+document.getElementById("lightbox-img").src=src;
+
+}
+
+function closeImg(){
+
+document.getElementById("lightbox").style.display="none";
+
+}
+
+</script>
 
 </body>
 </html>
